@@ -1,7 +1,7 @@
 let choices = ["Rock", "Paper", "Scissors"];
 let playerScore = 0;
 let computerScore = 0;
-
+let playerSelection;
 
 
 
@@ -36,5 +36,9 @@ function playRound(playerSelection, computerSelection) {
         playerScore += 1;
         return `Your score: ${playerScore}, Computer Score: ${computerScore}`;
     }
+}
+function game() {
+    playerSelection = prompt("What is your choice?", "Rock");
+    
 }
 
