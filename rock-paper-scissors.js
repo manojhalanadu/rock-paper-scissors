@@ -37,6 +37,9 @@ function playRound(playerSelection, computerSelection) {
         return `Your score: ${playerScore}, Computer Score: ${computerScore}`;
     }
 }
+function checkWhetherValid(string){
+    return string ? true : false;
+}
 function game() {
     playerSelection = prompt("What is your choice?", "Rock");
     
