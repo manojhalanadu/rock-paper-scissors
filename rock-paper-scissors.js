@@ -54,7 +54,7 @@ function checkWhetherValid(playerSelection){
 }
 
 function handleInvalidChoice() {
-    alert("Invalid Choice.");
+    console.log("Invalid Choice.");
     totalRounds += 1;
 }
 
