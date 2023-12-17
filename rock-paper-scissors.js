@@ -2,6 +2,7 @@ let choices = ["Rock", "Paper", "Scissors"];
 let playerScore = 0;
 let computerScore = 0;
 let playerSelection;
+let computerSelection;
 
 
 
@@ -37,11 +38,19 @@ function playRound(playerSelection, computerSelection) {
         return `Your score: ${playerScore}, Computer Score: ${computerScore}`;
     }
 }
-function checkWhetherValid(string){
-    return string ? true : false;
+function checkWhetherValid(playerSelection){
+    return playerSelection ? true : false;
 }
 function game() {
     playerSelection = prompt("What is your choice?", "Rock");
+    if (checkWhetherValid(playerSelection)) {
+        computerSelection = getComputerChoice();
+        playerSelection = playerSelection.toLowerCase();
+        playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+        console.log(playRound(playerSelection, computerSelection));
+    } else {
+        console.log("Invalid Choice");
+    }
     
 }
 
