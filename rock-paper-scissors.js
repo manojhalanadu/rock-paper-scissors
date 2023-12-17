@@ -73,7 +73,7 @@ function game() {
         } else if (playerSelection === "") {
             handleInvalidChoice();
         } else {
-            console.log("Game Ended.");
+            console.log("The Game Ended.");
             return;
         }
     }
