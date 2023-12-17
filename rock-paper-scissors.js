@@ -3,6 +3,7 @@ let playerScore = 0;
 let computerScore = 0;
 let playerSelection;
 let computerSelection;
+let totalRounds = 5;
 
 
 
@@ -52,8 +53,12 @@ function checkWhetherValid(playerSelection){
     return playerSelection ? true : false;
 }
 
+function handleInvalidChoice() {
+    alert("Invalid Choice.");
+    totalRounds += 1;
+}
+
 function game() {
-    let totalRounds = 5;
     for (let i = 0; i < totalRounds; i++) {
         playerSelection = prompt("What is your choice?", "Rock");
         computerSelection = getComputerChoice();
@@ -63,13 +68,10 @@ function game() {
             if (choices.includes(playerSelection)) {
                 console.log(playRound(playerSelection, computerSelection));
             } else {
-                console.log("Invalid Choice.");
-                totalRounds += 1;
-
+                handleInvalidChoice();
             }
         } else {
-            console.log("Invalid Choice");
-            totalRounds += 1;
+            handleInvalidChoice();
         }
     }
     
