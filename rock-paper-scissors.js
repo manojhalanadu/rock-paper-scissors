@@ -42,14 +42,24 @@ function checkWhetherValid(playerSelection){
     return playerSelection ? true : false;
 }
 function game() {
-    playerSelection = prompt("What is your choice?", "Rock");
-    if (checkWhetherValid(playerSelection)) {
-        computerSelection = getComputerChoice();
-        playerSelection = playerSelection.toLowerCase();
-        playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
-        console.log(playRound(playerSelection, computerSelection));
-    } else {
-        console.log("Invalid Choice");
+    let totalRounds = 5;
+    for (let i = 0; i < totalRounds; i++) {
+        playerSelection = prompt("What is your choice?", "Rock");
+        if (checkWhetherValid(playerSelection)) {
+            computerSelection = getComputerChoice();
+            playerSelection = playerSelection.toLowerCase();
+            playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+            if (choices.includes(playerSelection)) {
+                console.log(playRound(playerSelection, computerSelection));
+            } else {
+                console.log("Invalid Choice.");
+                totalRounds += 1;
+
+            }
+        } else {
+            console.log("Invalid Choice");
+            totalRounds += 1;
+        }
     }
     
 }
