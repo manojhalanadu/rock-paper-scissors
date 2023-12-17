@@ -12,7 +12,10 @@ function getComputerChoice() {
     return choices[randomIndex]; 
 }
 
-
+function resetScores() {
+    playerScore = 0;
+    computerScore = 0;
+}
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
@@ -38,15 +41,17 @@ function playRound(playerSelection, computerSelection) {
         return `Your score: ${playerScore}, Computer Score: ${computerScore}`;
     }
 }
+
 function checkWhetherValid(playerSelection){
     return playerSelection ? true : false;
 }
+
 function game() {
     let totalRounds = 5;
     for (let i = 0; i < totalRounds; i++) {
         playerSelection = prompt("What is your choice?", "Rock");
+        computerSelection = getComputerChoice();
         if (checkWhetherValid(playerSelection)) {
-            computerSelection = getComputerChoice();
             playerSelection = playerSelection.toLowerCase();
             playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
             if (choices.includes(playerSelection)) {
@@ -61,6 +66,13 @@ function game() {
             totalRounds += 1;
         }
     }
+    
+    if (playerScore > computerScore) {
+        console.log(`You Won! Your total score is ${playerScore}/5.`);
+    } else {
+        console.log(`You Lose. Your total score is ${playerScore}/5.`);
+    }
+    resetScores();
     
 }
 
