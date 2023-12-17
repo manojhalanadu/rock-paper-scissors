@@ -23,21 +23,27 @@ function playRound(playerSelection, computerSelection) {
         return playRound(playerSelection, computerSelection);
     } else if (playerSelection === "Rock" && computerSelection === "Paper") {
         computerScore += 1;
+        console.log(`Computer's choice was ${computerSelection}.`);
         return `Your score: ${playerScore}, Computer Score: ${computerScore}`;
     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
         playerScore += 1;
+        console.log(`Computer's choice was ${computerSelection}.`);
         return `Your score: ${playerScore}, Computer Score: ${computerScore}`;
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
         playerScore += 1;
+        console.log(`Computer's choice was ${computerSelection}.`);
         return `Your score: ${playerScore}, Computer Score: ${computerScore}`;
     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
         computerScore += 1;
+        console.log(`Computer's choice was ${computerSelection}.`);
         return `Your score: ${playerScore}, Computer Score: ${computerScore}`;
     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
         computerScore += 1;
+        console.log(`Computer's choice was ${computerSelection}.`);
         return `Your score: ${playerScore}, Computer Score: ${computerScore}`;
     } else {
         playerScore += 1;
+        console.log(`Computer's choice was ${computerSelection}.`);
         return `Your score: ${playerScore}, Computer Score: ${computerScore}`;
     }
 }
