@@ -64,7 +64,8 @@ function game() {
         computerSelection = getComputerChoice();
         if (checkWhetherValid(playerSelection)) {
             playerSelection = playerSelection.toLowerCase();
-            playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+            playerSelection = playerSelection.charAt(0).toUpperCase() +
+                playerSelection.slice(1);
             if (choices.includes(playerSelection)) {
                 console.log(playRound(playerSelection, computerSelection));
             } else {
@@ -73,8 +74,7 @@ function game() {
         } else if (playerSelection === "") {
             handleInvalidChoice();
         } else {
-            console.log("The Game Ended.");
-            return;
+            return console.log("The Game Ended.");
         }
     }
     
