@@ -1,7 +1,6 @@
 let choices = ["Rock", "Paper", "Scissors"];
 let playerScore = 0;
 let computerScore = 0;
-let playerSelection;
 let computerSelection;
 
 
@@ -17,7 +16,18 @@ function resetScores() {
     computerScore = 0;
 }
 
-function playRound(playerSelection, computerSelection) {
+function isAWin() {
+    if (playerScore === 5 || computerScore === 5) {
+        return true;
+    }
+    return false;
+}
+
+function playRound(playerSelection) {
+    if (isAWin()) {
+        return announceWin();
+    }
+    computerSelection = getComputerChoice();
     if (playerSelection === computerSelection) {
         computerSelection = getComputerChoice();
         return playRound(playerSelection, computerSelection);
@@ -57,7 +67,7 @@ function handleInvalidChoice() {
     totalRounds += 1;
 }
 
-function game() {
+function game(playerScore) {
     while (playerScore < 5 && computerScore < 5) {
         playerSelection = prompt("What is your choice?", "Rock");
         computerSelection = getComputerChoice();
