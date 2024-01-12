@@ -3,7 +3,6 @@ let playerScore = 0;
 let computerScore = 0;
 let playerSelection;
 let computerSelection;
-let totalRounds = 5;
 
 
 
@@ -59,7 +58,7 @@ function handleInvalidChoice() {
 }
 
 function game() {
-    for (let i = 0; i < totalRounds; i++) {
+    while (playerScore < 5 && computerScore < 5) {
         playerSelection = prompt("What is your choice?", "Rock");
         computerSelection = getComputerChoice();
         if (checkWhetherValid(playerSelection)) {
