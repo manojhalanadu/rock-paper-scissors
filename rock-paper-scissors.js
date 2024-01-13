@@ -54,9 +54,15 @@ function createPlayAgainButton() {
     playAgainButton.id = 'playAgain';
     playAgainButton.textContent = "Play Again";
     result.after(playAgainButton);
-    playAgainButton.onclick = () => {
-        result.textContent = '';
-    }
+
+    playAgainButton.addEventListener('click', handleClickEvent);
+}
+
+function handleClickEvent(e){
+    result.textContent = '';
+    scores.textContent = '';
+    computerChoiceDisplayElem.textContent = '';
+    this.remove();
 }
 function announceWin() {
     if (playerScore === 5) {
