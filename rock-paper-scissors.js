@@ -6,6 +6,7 @@ const buttonsContainer = document.querySelector('#buttonsContainer');
 const result = document.querySelector('#result');
 const scores = document.querySelector('#scores');
 const computerChoiceDisplayElem = document.querySelector('#computerChoiceDisplay');
+const buttons = document.querySelectorAll('#buttonsContainer button');
 
 
 buttonsContainer.addEventListener('click', (e) => {
@@ -47,11 +48,21 @@ function isAWin() {
     return false;
 }
 
+function toggleSelectionButtons() {
+    for (const button of buttons) {
+        if (button.disabled) {
+            button.disabled = false;
+        } else {
+            button.disabled = true;
+        }
+    }
+}
 function createPlayAgainButton() {
     const playAgainButton = document.createElement('button');
     playAgainButton.id = 'playAgain';
     playAgainButton.textContent = "Play Again";
     result.after(playAgainButton);
+    toggleSelectionButtons();
 
     playAgainButton.addEventListener('click', handleClickEvent);
 }
@@ -60,6 +71,7 @@ function handleClickEvent(e){
     result.textContent = '';
     scores.textContent = '';
     computerChoiceDisplayElem.textContent = '';
+    toggleSelectionButtons();
     this.remove();
 }
 
