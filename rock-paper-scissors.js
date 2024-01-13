@@ -7,7 +7,7 @@ const result = document.querySelector('#result');
 const scores = document.querySelector('#scores');
 const computerChoiceDisplayElem = document.querySelector('#computerChoiceDisplay');
 
-console.log(paperButton);
+
 buttonsContainer.addEventListener('click', (e) => {
     const targetButtonId = e.target.id;
 
@@ -23,15 +23,12 @@ buttonsContainer.addEventListener('click', (e) => {
             break;
         
     }
-}
-)
+});
+
 let choices = ["Rock", "Paper", "Scissors"];
 let playerScore = 0;
 let computerScore = 0;
 let computerSelection;
-
-
-
 
 function getComputerChoice() {
     let randomIndex = Math.floor(Math.random() * 3);
@@ -49,6 +46,7 @@ function isAWin() {
     }
     return false;
 }
+
 function createPlayAgainButton() {
     const playAgainButton = document.createElement('button');
     playAgainButton.id = 'playAgain';
@@ -64,6 +62,7 @@ function handleClickEvent(e){
     computerChoiceDisplayElem.textContent = '';
     this.remove();
 }
+
 function announceWin() {
     if (playerScore === 5) {
         result.textContent = `You Won! Your total score is ${playerScore}/5.`;
@@ -83,11 +82,11 @@ function displayScore() {
 }
 
 function displayComputerSelection(computerSelection) {
-    computerChoiceDisplayElem.textContent = `Computer's choice was ${computerSelection}.`
+    computerChoiceDisplayElem.textContent = `Computer's choice was ${computerSelection}.`;
 }
+
 function playRound(playerSelection) {
     computerSelection = getComputerChoice();
-    console.log(computerSelection);
     if (playerSelection === computerSelection) {
         return playRound(playerSelection);
     } else if (playerSelection === "Rock" && computerSelection === "Paper") {
