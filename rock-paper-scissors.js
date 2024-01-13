@@ -65,7 +65,7 @@ function handleClickEvent(e){
 
 function announceWin() {
     if (playerScore === 5) {
-        result.textContent = `You Won! Your total score is ${playerScore}/5.`;
+        result.textContent = "You won!";
     }
     else {
         result.textContent = `You Lose. Your total score is ${playerScore}/5.`;
